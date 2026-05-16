@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auth Flow — Driver App Wireframe</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,6 +14,20 @@
     .nav-btn:hover { border-color: #999; color: #111; }
     .nav-btn.home { background: #222; color: #fff; border-color: #222; }
     .nav-btn.home:hover { background: #444; border-color: #444; }
+    @media (max-width: 600px) {
+      body { padding: 0; gap: 0; justify-content: flex-start; background: #3d3d3d; }
+      .label, .sublabel { display: none; }
+      .nav-bar { padding: 10px 12px; width: 100%; background: #2d2d2d; border-bottom: 1px solid #444; }
+      .nav-btn { font-size: 11px; padding: 5px 10px; background: #3d3d3d; color: #ccc; border-color: #555; }
+      .nav-btn.home { background: #555; color: #eee; border-color: #555; }
+      .phone-mock { width: 100% !important; border: none !important; border-radius: 0 !important; }
+      .phone-statusbar { display: none !important; }
+      .phone-homebar { display: none !important; }
+      .wf-nav-row { display: none; }
+      .wf-dots-row { display: none; }
+      .wf-hint { display: none; }
+      #wf-screen { height: calc(100vh - 50px) !important; }
+    }
   </style>
 </head>
 <body>
@@ -28,7 +43,7 @@
 
   <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
 
-    <div style="display:flex;align-items:center;gap:20px;">
+    <div class="wf-nav-row" style="display:flex;align-items:center;gap:20px;">
       <button onclick="wfPrev()" style="width:36px;height:36px;border-radius:50%;border:0.5px solid #ddd;background:#fff;cursor:pointer;color:#222;font-size:16px;line-height:1;">&#8592;</button>
       <div style="text-align:center;min-width:200px;">
         <div id="wf-name" style="font-size:14px;font-weight:500;color:#222;">Splash</div>
@@ -37,21 +52,21 @@
       <button onclick="wfNext()" style="width:36px;height:36px;border-radius:50%;border:0.5px solid #ddd;background:#fff;cursor:pointer;color:#222;font-size:16px;line-height:1;">&#8594;</button>
     </div>
 
-    <div style="width:280px;border:3px solid #2c2c2c;border-radius:36px;overflow:hidden;">
-      <div style="height:24px;background:#2c2c2c;display:flex;align-items:center;justify-content:space-between;padding:0 14px;">
+    <div class="phone-mock" style="width:280px;border:3px solid #2c2c2c;border-radius:36px;overflow:hidden;">
+      <div class="phone-statusbar" style="height:24px;background:#2c2c2c;display:flex;align-items:center;justify-content:space-between;padding:0 14px;">
         <span style="color:#888;font-size:9px;">9:41</span>
         <div style="width:48px;height:7px;background:#555;border-radius:4px;"></div>
         <span style="color:#888;font-size:8px;">&#9679; &#9679; &#9679;</span>
       </div>
       <div id="wf-screen" style="height:548px;overflow:hidden;"></div>
-      <div style="height:20px;background:#f0f0f0;border-top:1px solid #ddd;display:flex;align-items:center;justify-content:center;">
+      <div class="phone-homebar" style="height:20px;background:#f0f0f0;border-top:1px solid #ddd;display:flex;align-items:center;justify-content:center;">
         <div style="width:80px;height:4px;background:#ccc;border-radius:2px;"></div>
       </div>
     </div>
 
-    <div id="wf-dots" style="display:flex;gap:8px;align-items:center;"></div>
+    <div class="wf-dots-row" id="wf-dots" style="display:flex;gap:8px;align-items:center;"></div>
 
-    <div style="font-size:11px;color:#888;">Use arrow keys or click dots to navigate</div>
+    <div class="wf-hint" style="font-size:11px;color:#888;">Use arrow keys or click dots to navigate</div>
 
   </div>
 

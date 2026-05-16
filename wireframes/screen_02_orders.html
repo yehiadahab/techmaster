@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orders — Driver App Wireframe</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,6 +18,16 @@
     .nav-btn:hover { border-color: #999; color: #111; }
     .nav-btn.home { background: #222; color: #fff; border-color: #222; }
     .nav-btn.home:hover { background: #444; border-color: #444; }
+    @media (max-width: 600px) {
+      body { padding: 0; gap: 0; justify-content: flex-start; background: #f5f5f5; }
+      .label, .sublabel { display: none; }
+      .nav-bar { padding: 10px 12px; width: 100%; background: #fff; border-bottom: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+      .nav-btn { font-size: 11px; padding: 5px 10px; }
+      .phone { width: 100%; border: none; border-radius: 0; }
+      .statusbar { display: none; }
+      .homebar { display: none; }
+      .screen { height: calc(100vh - 50px); }
+    }
   </style>
 </head>
 <body>
