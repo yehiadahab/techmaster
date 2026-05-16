@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auth Flow — Driver App Wireframe</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #e8e8e8; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; gap: 12px; }
+    .label { font-size: 14px; font-weight: 600; color: #222; }
+    .sublabel { font-size: 11px; color: #888; }
+    .nav-bar { display: flex; gap: 8px; align-items: center; justify-content: center; }
+    .nav-btn { font-size: 12px; color: #555; text-decoration: none; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 6px 14px; transition: border-color 0.15s, color 0.15s; }
+    .nav-btn:hover { border-color: #999; color: #111; }
+    .nav-btn.home { background: #222; color: #fff; border-color: #222; }
+    .nav-btn.home:hover { background: #444; border-color: #444; }
+  </style>
+</head>
+<body>
+
+  <div class="label">Auth Flow</div>
+  <div class="sublabel">Splash &nbsp;&#183;&nbsp; Login &nbsp;&#183;&nbsp; Forgot Password &nbsp;&#183;&nbsp; New Password &nbsp;&#183;&nbsp; Reset Success</div>
+
+  <div class="nav-bar">
+    <a class="nav-btn" href="index.html">&#8592; Back</a>
+    <a class="nav-btn home" href="index.html">&#8962; Home</a>
+    <a class="nav-btn" href="screen_01_dashboard.html">Next &#8594;</a>
+  </div>
+
+  <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+
+    <div style="display:flex;align-items:center;gap:20px;">
+      <button onclick="wfPrev()" style="width:36px;height:36px;border-radius:50%;border:0.5px solid #ddd;background:#fff;cursor:pointer;color:#222;font-size:16px;line-height:1;">&#8592;</button>
+      <div style="text-align:center;min-width:200px;">
+        <div id="wf-name" style="font-size:14px;font-weight:500;color:#222;">Splash</div>
+        <div id="wf-meta" style="font-size:12px;color:#888;">Screen 1 of 5 &nbsp;&#183;&nbsp; Splash</div>
+      </div>
+      <button onclick="wfNext()" style="width:36px;height:36px;border-radius:50%;border:0.5px solid #ddd;background:#fff;cursor:pointer;color:#222;font-size:16px;line-height:1;">&#8594;</button>
+    </div>
+
+    <div style="width:280px;border:3px solid #2c2c2c;border-radius:36px;overflow:hidden;">
+      <div style="height:24px;background:#2c2c2c;display:flex;align-items:center;justify-content:space-between;padding:0 14px;">
+        <span style="color:#888;font-size:9px;">9:41</span>
+        <div style="width:48px;height:7px;background:#555;border-radius:4px;"></div>
+        <span style="color:#888;font-size:8px;">&#9679; &#9679; &#9679;</span>
+      </div>
+      <div id="wf-screen" style="height:548px;overflow:hidden;"></div>
+      <div style="height:20px;background:#f0f0f0;border-top:1px solid #ddd;display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:4px;background:#ccc;border-radius:2px;"></div>
+      </div>
+    </div>
+
+    <div id="wf-dots" style="display:flex;gap:8px;align-items:center;"></div>
+
+    <div style="font-size:11px;color:#888;">Use arrow keys or click dots to navigate</div>
+
+  </div>
+
+<script>
+function mkInput(label, isDots) {
+  return '<div><div style="color:#888;font-size:10px;margin-bottom:5px;">' + label + '</div>' +
+    '<div style="height:28px;border-bottom:1px solid #666;display:flex;align-items:center;">' +
+    (isDots ? '<span style="color:#555;font-size:13px;letter-spacing:4px;">&#8226;&#8226;&#8226;&#8226;&#8226;</span>' : '') +
+    '</div></div>';
+}
+
+var WF_SCREENS = [
+  {
+    name: 'Splash',
+    group: 'Splash',
+    html: '<div style="height:100%;background:#3d3d3d;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;">' +
+      '<div style="width:160px;height:96px;border:2px dashed #777;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#4a4a4a;">' +
+      '<span style="color:#999;font-size:12px;letter-spacing:1px;">[ LOGO ]</span></div>' +
+      '<span style="color:#666;font-size:9px;">Loading...</span>' +
+      '</div>'
+  },
+  {
+    name: 'Login',
+    group: 'Auth',
+    html: '<div style="height:100%;background:#3d3d3d;display:flex;flex-direction:column;position:relative;">' +
+      '<div style="position:absolute;top:10px;right:12px;border:1px solid #666;padding:3px 10px;border-radius:12px;">' +
+      '<span style="color:#bbb;font-size:9px;">EN | &#1593;</span></div>' +
+      '<div style="margin:28px auto 0;width:130px;height:84px;border:2px dashed #777;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#4a4a4a;">' +
+      '<span style="color:#999;font-size:11px;">[ LOGO ]</span></div>' +
+      '<div style="padding:24px 20px 0;flex:1;display:flex;flex-direction:column;gap:16px;">' +
+      mkInput('Email / Mobile', false) +
+      mkInput('Password', true) +
+      '<div style="text-align:right;"><span style="color:#777;font-size:10px;text-decoration:underline;">Forgot Password?</span></div>' +
+      '</div>' +
+      '<div style="height:44px;background:#666;display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
+      '<span style="color:#ddd;font-size:12px;letter-spacing:2px;">LOGIN</span></div></div>'
+  },
+  {
+    name: 'Forgot Password',
+    group: 'Auth',
+    html: '<div style="height:100%;background:#3d3d3d;display:flex;flex-direction:column;">' +
+      '<div style="height:40px;background:#2d2d2d;display:flex;align-items:center;padding:0 14px;gap:10px;flex-shrink:0;">' +
+      '<span style="color:#aaa;font-size:14px;">&#8592;</span>' +
+      '<span style="color:#ccc;font-size:11px;">Forgot Password</span></div>' +
+      '<div style="margin:24px auto;width:130px;height:84px;border:2px dashed #777;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#4a4a4a;">' +
+      '<span style="color:#999;font-size:11px;">[ LOGO ]</span></div>' +
+      '<div style="padding:4px 20px 0;flex:1;">' +
+      mkInput('Email', false) +
+      '<div style="margin-top:12px;color:#888;font-size:9px;line-height:1.5;">Enter your registered email. We will send you a reset code.</div>' +
+      '</div>' +
+      '<div style="height:44px;background:#666;display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
+      '<span style="color:#ddd;font-size:11px;letter-spacing:1px;">RESET PASSWORD</span></div></div>'
+  },
+  {
+    name: 'New Password',
+    group: 'Auth',
+    html: '<div style="height:100%;background:#3d3d3d;display:flex;flex-direction:column;">' +
+      '<div style="height:40px;background:#2d2d2d;display:flex;align-items:center;padding:0 14px;gap:10px;flex-shrink:0;">' +
+      '<span style="color:#aaa;font-size:14px;">&#8592;</span>' +
+      '<span style="color:#ccc;font-size:11px;">New Password</span></div>' +
+      '<div style="margin:20px auto 16px;width:130px;height:80px;border:2px dashed #777;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#4a4a4a;">' +
+      '<span style="color:#999;font-size:11px;">[ LOGO ]</span></div>' +
+      '<div style="padding:0 20px;flex:1;display:flex;flex-direction:column;gap:14px;">' +
+      mkInput('Verification Code', false) +
+      mkInput('New Password', true) +
+      mkInput('Confirm Password', true) +
+      '</div>' +
+      '<div style="height:44px;background:#666;display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
+      '<span style="color:#ddd;font-size:11px;letter-spacing:1px;">CHANGE PASSWORD</span></div></div>'
+  },
+  {
+    name: 'Reset Success',
+    group: 'Auth',
+    html: '<div style="height:100%;background:#3d3d3d;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:20px;">' +
+      '<div style="width:130px;height:80px;border:2px dashed #777;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#4a4a4a;">' +
+      '<span style="color:#999;font-size:11px;">[ LOGO ]</span></div>' +
+      '<div style="width:56px;height:56px;border-radius:50%;border:2px solid #888;background:#4a4a4a;display:flex;align-items:center;justify-content:center;">' +
+      '<span style="color:#aaa;font-size:22px;">&#10003;</span></div>' +
+      '<div style="text-align:center;">' +
+      '<div style="color:#ccc;font-size:13px;line-height:1.7;">Password reset successfully</div>' +
+      '<div style="color:#888;font-size:11px;margin-top:4px;">Please check your email</div>' +
+      '</div></div>'
+  },
+];
+
+var wfCurrent = 0;
+
+function wfRender() {
+  var s = WF_SCREENS[wfCurrent];
+  document.getElementById('wf-screen').innerHTML = s.html;
+  document.getElementById('wf-name').textContent = s.name;
+  document.getElementById('wf-meta').innerHTML = 'Screen ' + (wfCurrent + 1) + ' of ' + WF_SCREENS.length + ' &nbsp;&#183;&nbsp; ' + s.group;
+  var dots = '';
+  for (var i = 0; i < WF_SCREENS.length; i++) {
+    var active = i === wfCurrent;
+    dots += '<div onclick="wfGo(' + i + ')" title="' + WF_SCREENS[i].name + '" style="width:' + (active ? '20' : '8') + 'px;height:8px;border-radius:4px;background:' + (active ? '#222' : '#ccc') + ';cursor:pointer;"></div>';
+  }
+  document.getElementById('wf-dots').innerHTML = dots;
+}
+
+function wfPrev() { wfCurrent = (wfCurrent - 1 + WF_SCREENS.length) % WF_SCREENS.length; wfRender(); }
+function wfNext() { wfCurrent = (wfCurrent + 1) % WF_SCREENS.length; wfRender(); }
+function wfGo(i) { wfCurrent = i; wfRender(); }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') wfPrev();
+  if (e.key === 'ArrowRight') wfNext();
+});
+
+wfRender();
+</script>
+
+</body>
+</html>

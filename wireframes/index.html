@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver App — Lo-Fi Wireframes</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      color: #222;
+    }
+
+    header {
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #111;
+      letter-spacing: -0.3px;
+    }
+
+    header p {
+      font-size: 13px;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    header .divider {
+      width: 40px;
+      height: 3px;
+      background: #333;
+      border-radius: 2px;
+      margin-top: 14px;
+    }
+
+    .section-label {
+      max-width: 680px;
+      margin: 0 auto 10px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #aaa;
+    }
+
+    .grid {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .grid.single {
+      grid-template-columns: 1fr;
+    }
+
+    a.card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #fff;
+      border: 0.5px solid #ddd;
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    a.card:hover {
+      border-color: #bbb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    a.card.featured {
+      background: #222;
+      border-color: #222;
+      color: #fff;
+    }
+
+    a.card.featured:hover {
+      background: #333;
+      border-color: #333;
+    }
+
+    .badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      flex-shrink: 0;
+    }
+
+    a.card.featured .badge {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    .card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-name {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    a.card.featured .card-meta {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .card-arrow {
+      font-size: 14px;
+      color: #ccc;
+      flex-shrink: 0;
+    }
+
+    a.card.featured .card-arrow {
+      color: rgba(255,255,255,0.4);
+    }
+
+    a.card:hover .card-arrow {
+      color: #888;
+    }
+
+    a.card.featured:hover .card-arrow {
+      color: rgba(255,255,255,0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Driver App</h1>
+    <p>Lo-fi wireframes &nbsp;&#183;&nbsp; Phase 1</p>
+    <div class="divider"></div>
+  </header>
+
+  <!-- Auth module -->
+  <div class="section-label">Auth</div>
+  <div class="grid single" style="margin-bottom: 2rem;">
+    <a class="card featured" href="auth_screens.html">
+      <div class="badge">01</div>
+      <div class="card-body">
+        <div class="card-name">Auth Flow</div>
+        <div class="card-meta">Splash &nbsp;·&nbsp; Login &nbsp;·&nbsp; Forgot Password &nbsp;·&nbsp; New Password &nbsp;·&nbsp; Reset Success</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+  </div>
+
+  <!-- Main screens -->
+  <div class="section-label">Screens</div>
+  <div class="grid">
+
+    <a class="card" href="screen_01_dashboard.html">
+      <div class="badge">02</div>
+      <div class="card-body">
+        <div class="card-name">Home / Dashboard</div>
+        <div class="card-meta">Dashboard</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+    <a class="card" href="screen_02_orders.html">
+      <div class="badge">03</div>
+      <div class="card-body">
+        <div class="card-name">Orders</div>
+        <div class="card-meta">Orders</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+    <a class="card" href="screen_03_order_details.html">
+      <div class="badge">04</div>
+      <div class="card-body">
+        <div class="card-name">Order Details</div>
+        <div class="card-meta">Orders</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+    <a class="card" href="screen_04_penalties.html">
+      <div class="badge">05</div>
+      <div class="card-body">
+        <div class="card-name">Penalties</div>
+        <div class="card-meta">Penalties</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+    <a class="card" href="screen_05_notifications.html">
+      <div class="badge">06</div>
+      <div class="card-body">
+        <div class="card-name">Notifications</div>
+        <div class="card-meta">Notifications</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+    <a class="card" href="screen_06_notification_details.html">
+      <div class="badge">07</div>
+      <div class="card-body">
+        <div class="card-name">Notification Details</div>
+        <div class="card-meta">Notifications</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+    <a class="card" href="screen_07_my_profile.html">
+      <div class="badge">08</div>
+      <div class="card-body">
+        <div class="card-name">My Profile</div>
+        <div class="card-meta">Profile</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+    <a class="card" href="screen_08_contact_us.html">
+      <div class="badge">09</div>
+      <div class="card-body">
+        <div class="card-name">Contact Us</div>
+        <div class="card-meta">Support</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile — Driver App Wireframe</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #e8e8e8; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; gap: 12px; }
+    .label { font-size: 14px; font-weight: 600; color: #222; }
+    .sublabel { font-size: 11px; color: #888; }
+    .phone { width: 280px; border: 3px solid #2c2c2c; border-radius: 36px; overflow: hidden; }
+    .statusbar { height: 24px; background: #2c2c2c; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; }
+    .homebar { height: 20px; background: #f0f0f0; border-top: 1px solid #ddd; display: flex; align-items: center; justify-content: center; }
+    .screen { height: 548px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+    .info-row { padding: 7px 20px; display: flex; align-items: center; }
+    .divider { height: 0.5px; background: #eee; margin: 0 50px; }
+    .nav-bar { display: flex; gap: 8px; align-items: center; justify-content: center; }
+    .nav-btn { font-size: 12px; color: #555; text-decoration: none; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 6px 14px; transition: border-color 0.15s, color 0.15s; }
+    .nav-btn:hover { border-color: #999; color: #111; }
+    .nav-btn.home { background: #222; color: #fff; border-color: #222; }
+    .nav-btn.home:hover { background: #444; border-color: #444; }
+  </style>
+</head>
+<body>
+
+  <div class="label">My Profile</div>
+  <div class="sublabel">Profile</div>
+
+  <div class="nav-bar">
+    <a class="nav-btn" href="screen_06_notification_details.html">&#8592; Back</a>
+    <a class="nav-btn home" href="index.html">&#8962; Home</a>
+    <a class="nav-btn" href="screen_08_contact_us.html">Next &#8594;</a>
+  </div>
+
+  <div class="phone">
+    <div class="statusbar">
+      <span style="color:#888;font-size:9px;">9:41</span>
+      <div style="width:48px;height:7px;background:#555;border-radius:4px;"></div>
+      <span style="color:#888;font-size:8px;">&#9679; &#9679; &#9679;</span>
+    </div>
+
+    <div class="screen">
+
+      <!-- Toolbar -->
+      <div style="height:40px;background:#fff;border-bottom:1px solid #ddd;display:flex;align-items:center;padding:0 12px;flex-shrink:0;">
+        <span style="color:#888;font-size:14px;margin-right:10px;">&#8592;</span>
+        <span style="font-size:12px;font-weight:500;color:#444;">My Profile</span>
+      </div>
+
+      <!-- Avatar + name -->
+      <div style="padding:16px;display:flex;flex-direction:column;align-items:center;flex-shrink:0;">
+        <div style="width:70px;height:70px;border-radius:50%;border:1px dashed #ccc;background:#f0f0f0;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:9px;color:#bbb;">Photo</span>
+        </div>
+        <div style="margin-top:10px;height:10px;background:#ddd;border-radius:3px;width:90px;"></div>
+      </div>
+
+      <div class="divider" style="margin: 0 30px 4px;"></div>
+
+      <div class="info-row">
+        <span style="font-size:10px;color:#888;min-width:90px;">Email :</span>
+        <span style="font-size:10px;color:#555;">driver@example.com</span>
+      </div>
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span style="font-size:10px;color:#888;min-width:90px;">Mobile :</span>
+        <span style="font-size:10px;color:#555;">+966 5X XXX XXXX</span>
+      </div>
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span style="font-size:10px;color:#888;min-width:90px;">Badge No :</span>
+        <span style="font-size:10px;color:#555;">12121</span>
+      </div>
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span style="font-size:10px;color:#888;min-width:90px;">Car No :</span>
+        <span style="font-size:10px;color:#555;">ABC-1234</span>
+      </div>
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span style="font-size:10px;color:#888;min-width:90px;">License Date :</span>
+        <span style="font-size:10px;color:#555;">10 / 08 / 2022</span>
+      </div>
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span style="font-size:10px;color:#888;min-width:90px;">Joining Date :</span>
+        <span style="font-size:10px;color:#555;">10 / 08 / 2020</span>
+      </div>
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span style="font-size:10px;color:#888;min-width:90px;">Nationality :</span>
+        <span style="font-size:10px;color:#555;">Saudi</span>
+      </div>
+
+    </div>
+
+    <div class="homebar">
+      <div style="width:80px;height:4px;background:#ccc;border-radius:2px;"></div>
+    </div>
+  </div>
+
+</body>
+</html>
